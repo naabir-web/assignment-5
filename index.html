@@ -28,19 +28,41 @@
         }
     </script>
 
-      <style>
-            .font-lexend{
-                font-family: "Lexend", sans-serif;
-            }
-      </style>
+<style>
+.font-lexend{
+    font-family: "Lexend", sans-serif;
+}
+
+
+#content.blurred {
+    filter: blur(5px); 
+    pointer-events: none;
+}
+
+
+#modal {
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(5px); 
+}
+
+/* header{
+    position: sticky;
+    top: 0;
+    background-color: white; 
+    padding: 10px;
+    box-shadow: 0px 4px 2px -2px gray; 
+    z-index: 1000; 
+} */
+
+</style>
 
 </head>
 <body class="font-lexend">
     
-    <header class="mt-10 bg-nav-bg" >
-        <nav class="w-11/12 mx-auto shadow-xl pt-4 pb-16 flex justify-between items-center">
+    <header class="mt-10 bg-nav-bg sticky top-0 shadow-md z-50" >
+        <nav class="w-11/12 mx-auto pt-4 pb-16 flex justify-between items-center">
             <div>
-              <button class="btn bg-lime-300">Blog</button>
+                <a href="blog.html"><button class="btn bg-lime-300" id="navBtn">Blog</button></a>
             </div>
             <div class="flex items-center space-x-0 md:space-x-4">
                 <img src="./assets/logo.png" alt="">
@@ -49,35 +71,45 @@
             <div class="bg-white flex justify-center items-center space-x-2 text-black px-3 py-2 rounded-full">
                 
                 <img src="./assets/coin.png" alt="">
-                <p class="text-black font-bold text-xl"> 5500 BDT</p>
+                <p class="text-black font-bold text-xl" id="account-balance">5500</p>
+                <p class="text-black font-bold text-xl">BDT</p>
             
             </div>
         </nav>
 
+        
+
     </header>
 
-    <main class="w-11/12 mx-auto">
-        <div class="flex justify-center mt-10">
-            <div class="space-x-5">
-                <button class="bg-lime-300 text-lg text-black font-medium py-4 px-6 rounded-lg border border-border-color">Donation</button>
-                <button class=" text-black text-lg font-medium py-4 px-6 rounded-lg border border-border-color">History</button>
+    <section>
+        <div class="w-10/12 mx-auto">
+            <div class="flex justify-center mt-10">
+                <div class="space-x-5">
+                    <button class="bg-lime-300 text-lg text-black font-medium py-4 px-6 rounded-lg border border-border-color" id="show-donation">Donation</button>
+                    <button class="text-black text-lg font-medium py-4 px-6 rounded-lg border border-border-color" id="show-history">History</button>
+                </div>
             </div>
         </div>
+    </section>
+
+    <main class="w-11/12 mx-auto" id="donation-form">
+        
 
         <section class="mt-8">
             <!-- card -1 -->
-            <div class="grid grid-cols-1 md:grid-cols-4 md:gap-8 border-2 border-card-border p-8 rounded-2xl bg-card-bg shadow-lg">
-                <div class="col-span-2">
+            <div class="grid grid-cols-1 md:grid-cols-3 md:gap-8 border-2 border-card-border p-8 rounded-2xl bg-card-bg shadow-lg" id="content">
+                <div>
                     <img src="./assets/noakhali.png" class="w-full h-full rounded-xl object-cover" alt="not found">
                 </div>
                 <div class="col-span-2">
-                    <div class="mt-20">
+                    <div>
                         <div>
                             <div class="pt-6 md:pt-0">
                                 <div class="bg-coin-bg inline-flex justify-center items-center space-x-2 text-black px-3 py-2 rounded-lg pt-4">
                         
                                     <img src="./assets/coin.png" alt="not found">
-                                    <p class="text-black font-normal text-base">0 BDT</p>
+                                    <p id="donate-money" class="text-black font-normal text-base">0 </p>
+                                    <p class="text-black font-normal text-base">BDT</p>
                                 
                                 </div>
                             </div>
@@ -88,8 +120,8 @@
                             </p>
         
                             <div class="card-actions pb-4">
-                              <input type="text" placeholder="Write Donation Amount" class="input input-bordered w-full mb-3" />
-                              <button class="btn bg-lime-300 w-full">Donate Now</button>
+                              <input type="text" id="input-money" placeholder="Write Donation Amount" class="input input-bordered w-full mb-3" />
+                              <button class="btn bg-lime-300 w-full" id="donateBtn">Donate Now</button>
                             </div>
                         </div>
                     </div>
@@ -154,18 +186,32 @@
         </section>
     </main>
 
+    
 
-    <div class="bg-primary10 fixed inset-0 hidden justify-center items-center z-50" id="modal"></div>
-        <div class="bg-white p-10 text-center flex flex-col gap-5 justify-center items-center rounded-2xl">
-            <img src="./images/done.svg" alt="">
-            <h1 class="text-xl font-bold text-primary">SUCCESS</h1>
-            <p class="font-medium">Thank you for Booking Our Bus Seats. <br>We are working hard to find the best service and deals for you.
+    
+        <div id="donation-history" class="hidden">
+            <h2>transsiction snsxwk</h2>
+            <div class="donation-section">
+
+            </div>
+        </div>
+    
+
+    <div class="bg-primary10 fixed inset-0 hidden justify-center items-center z-auto" id="modal">
+        <div class="bg-white p-10 text-center flex flex-col gap-8 justify-center items-center rounded-2xl shadow-lg modal-content w-10/12 md:w-1/2">
+            <h1 class="text-3xl font-bold text-black">Congrates!</h1>
+            <img src="./assets/coin.png" class="w-10" alt="not found">
+            <p class="font-medium text-lg text-gray-600">You Have Donated for Humankind
             </p>
-            <span>Shortly you will find a confirmation in your email.</span>
-            <button class="py-3 px-10 bg-primary font-bold text-white rounded-3xl" id="Continue">Continue</button>
+            <span class="text-xl text-black font-bold">Successfully</span>
+            <button class="btn " id="continue">close confirmation</button>
         </div>
     </div>
 
 
+    <script src="./js/script.js"></script>
+    <script src="./js/utilities.js"></script>
+    <script src="./js/feature.js"></script>
+    <script src="./js/link.js"></script>
 </body>
 </html>
