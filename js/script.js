@@ -2,6 +2,7 @@
 const donateBtn = document.getElementById('donateBtn');
 const modal = document.getElementById('modal');
 const Continue = document.getElementById('continue');
+const content = document.getElementById('content');
 
 
 
@@ -56,9 +57,7 @@ donateBtn.addEventListener('click', function(e) {
             donationHistory.appendChild(newDonation);
 
            
-        }
-
-        
+        } 
 
     }
     
