@@ -20,9 +20,13 @@ function showSectionById(id){
 
     //  show the section with provide id with parameter
     document.getElementById(id).classList.remove('hidden');
+}
 
-    document.getElementById('show-history').classList.add("bg-lime-300");
-    document.getElementById('show-donation').classList.add("bg-lime-300");
+function setActiveButton(activeId) {
+    // Reset both buttons to default
+    document.getElementById('show-donation').classList.remove('bg-lime-300');
+    document.getElementById('show-history').classList.remove('bg-lime-300');
 
-    document.getElementById(id).classList.remove("bg-lime-300")
+    // Set the active button
+    document.getElementById(activeId).classList.add('bg-lime-300');
 }

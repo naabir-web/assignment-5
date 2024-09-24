@@ -2,26 +2,8 @@
 const donateBtn = document.getElementById('donateBtn');
 const modal = document.getElementById('modal');
 const Continue = document.getElementById('continue');
-const content = document.getElementById('content');
 
 
-
-
-// donateBtn.addEventListener('click', function(e) {
-
-//     e.preventDefault();
-
-//     const donationInput = document.querySelector('input').value.trim();
-    
-//     if (donationInput === '' || isNaN(donationInput) || parseFloat(donationInput) <= 0) {
-//         alert('Please enter a valid donation amount.');
-//     } else {
-        
-//         modal.classList.remove('hidden');
-//         modal.classList.add('flex');
-//         content.classList.add('blurred');
-//     }
-// });
 
 donateBtn.addEventListener('click', function(e) {
     e.preventDefault();
@@ -47,28 +29,32 @@ donateBtn.addEventListener('click', function(e) {
             document.getElementById('donate-money').innerText = donateBalance;
 
 
-            const modal = document.getElementById('modal');
-            const content = document.getElementById('content');
+             //  reset the donation input field
+             document.getElementById('input-money').value = '';
+
+            // modal appear
             modal.classList.remove('hidden');
             modal.classList.add('flex'); 
             content.classList.add('blurred'); 
 
             const donationHistory = document.getElementById('donation-section');
             const newDonation = document.createElement('div');
+            newDonation.classList.add('bg-white', 'rounded-xl', 'p-6', 'shadow', 'my-4','border'); 
 
             const currentDate = new Date();
             const formattedDate = currentDate.toLocaleString('en-BD', { timeZone: 'Asia/Dhaka' });
-            
+
+            const donationCause = "Flood at Noakhali, Bangladesh";
+
             newDonation.innerHTML = `
                 <div class="history-card">
-                    <p><strong>${donateBalance} Taka</strong> is Donated for </p>
-                    <p>Date: ${formattedDate} (Bangladesh Standard Time)</p>
+                    <p class="text-xl text-black font-bold pb-2">${donationInput} BDT donated successfully ${donationCause}</p>
+                    <p class="text-base text-gray-600 font-normal">Date: ${formattedDate} (Bangladesh Standard Time)</p>
                 </div>
-            `
-            donationHistory.appendChild(newDonation); 
+            `;
+            donationHistory.appendChild(newDonation);
 
-            //  reset the donation input field
-            document.getElementById('input-money').value = '';
+           
         }
 
         
@@ -79,8 +65,8 @@ donateBtn.addEventListener('click', function(e) {
 
 
 
-//  Add functionality to close the modal on clicking the "Continue" button
-document.getElementById('continue').addEventListener('click', function() {
+// close the modal on clicking the continue button
+ Continue.addEventListener('click', function() {
     const modal = document.getElementById('modal');
     const content = document.getElementById('content');
 
@@ -89,8 +75,6 @@ document.getElementById('continue').addEventListener('click', function() {
     content.classList.remove('blurred');
 });
 
-// Continue.addEventListener("click", function(){
-//     location.reload();
-// })
+
 
 
