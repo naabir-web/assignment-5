@@ -20,7 +20,9 @@ document.getElementById('show-donation')
 
 document.getElementById('show-history')
 .addEventListener('click', function () {
-    
+
     showSectionById('donation-history');
     setActiveButton('show-history');
 });
+
+

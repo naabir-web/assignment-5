@@ -48,10 +48,11 @@ donateBtn.addEventListener('click', function(e) {
 
             newDonation.innerHTML = `
                 <div class="history-card">
-                    <p class="text-xl text-black font-bold pb-2">${donationInput} BDT donated successfully ${donationCause}</p>
+                    <p class="text-xl text-black font-bold pb-2">${donationInput} Taka is donated for ${donationCause}</p>
                     <p class="text-base text-gray-600 font-normal">Date: ${formattedDate} (Bangladesh Standard Time)</p>
                 </div>
             `;
+            
             donationHistory.appendChild(newDonation);
 
            
@@ -74,7 +75,6 @@ donateBtn.addEventListener('click', function(e) {
     modal.classList.add('hidden');
     content.classList.remove('blurred');
 });
-
 
 
 
